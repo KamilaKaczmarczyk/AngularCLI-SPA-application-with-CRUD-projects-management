@@ -1,0 +1,19 @@
+.btn-add-custom{
+    color: #FFCC00;
+    border-color: #FFCC00;
+}
+.btn-add-custom:focus{
+    border-color: #FFCC00;
+    box-shadow: 0 0 0 0.2rem rgba(255, 208, 0, 0.788);
+}
+.btn-add-custom:hover{
+    border-color: #FFCC00;
+    background-color: #FFCC00;
+    color: white;
+}
+.btn-add-custom:not(:disabled):not(.disabled):active{
+    color: #fff;
+    background-color: #FFCC00;
+    border-color: #FFCC00;
+    box-shadow: 0 0 0 0.2rem rgba(255, 208, 0, 0.788);
+}
