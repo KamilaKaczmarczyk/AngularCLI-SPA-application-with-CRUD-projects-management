@@ -5,6 +5,7 @@ import { FormsModule }   from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { NavbarModule } from '../components/navbar/navbar.module';
+import { ContentModule } from '../components/content/content.module';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { NavbarModule } from '../components/navbar/navbar.module';
     BrowserModule,
     NgbModule.forRoot(),
     FormsModule,
-    NavbarModule
+    NavbarModule,
+    ContentModule
   ],
   providers: [],
   bootstrap: [AppComponent]
