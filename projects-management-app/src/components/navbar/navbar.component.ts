@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ProjectsService } from '../../app/projects.service';
+import { Project } from '../../models/interface';
 
 @Component({
     selector: 'navbar',
@@ -6,6 +8,21 @@ import { Component } from '@angular/core';
     styleUrls:['navbar.component.scss']
 })
 export class NavbarComponent {
+    public areAnyProject: boolean;
 
+    projects:Project[];
+     
+    getProjects(): void {
+        this.projects = this.projectsService.getProjects();
+    }
+ 
+    public addFirstProject(){
+  if (this.projects.length !== 0){
+     this.areAnyProject;
+  }
+    }
+    constructor(
+        private projectsService :ProjectsService
+    ){} 
 
 }
