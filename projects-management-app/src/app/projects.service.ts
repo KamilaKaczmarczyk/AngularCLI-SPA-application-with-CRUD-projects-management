@@ -10,6 +10,7 @@ export class ProjectsService {
   constructor() { }
 
   getProjects():Project[]{
-    return PROJECTS;}
+    return PROJECTS;
+  }
 
 }

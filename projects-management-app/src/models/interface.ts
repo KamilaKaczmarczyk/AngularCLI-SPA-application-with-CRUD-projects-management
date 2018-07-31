@@ -2,8 +2,8 @@
 id : number;
 name: string;
 description: string;
-date?: Date;
-updateDate?: Date;
-startTime?: Date;
-endTime?: Date;
+date?: number;
+updateDate?: number;
+startTime?: string;
+endTime?: string;
 }

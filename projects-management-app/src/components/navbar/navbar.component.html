@@ -1,4 +1,4 @@
 <nav class="navbar navbar-light" style="background-color: #A8A8A8;">
     <span class="navbar-brand mb-0 h1">Projects Management</span>
-    <button *ngIf="addFirstProject" type="button" class="btn btn-warning" style="color:white;">Add new projects</button>
+    <button *ngIf="hasProject" type="button" class="btn btn-warning" style="color:white;" (click)="open()">Add new projects</button>
   </nav>

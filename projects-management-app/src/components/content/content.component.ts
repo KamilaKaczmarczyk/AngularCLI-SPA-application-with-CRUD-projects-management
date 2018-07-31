@@ -10,8 +10,6 @@ import { AddModalsComponent } from "../../modals/add-modal/add_modal.component";
   styleUrls: ["content.component.scss"]
 })
 export class ContentComponent {
-  public areAnyProject: boolean;
-  public isAddModalOpen: boolean;
   closeResult: string;
 
   projects: Project[];
@@ -19,13 +17,9 @@ export class ContentComponent {
   getProjects(): void {
     this.projects = this.projectsService.getProjects();
   }
-
-  public addFirstProject() {
-    if (this.projects.length === 0) {
-      this.areAnyProject = true;
-    } else{
-      this.areAnyProject = false;
-    }
+  
+  public  get hasProject() :boolean {
+    return this.projects.length !== 0;
   }
 
   constructor(
@@ -33,10 +27,9 @@ export class ContentComponent {
     private modalService: NgbModal
   ) {
     this.getProjects();
-    this.addFirstProject();
   }
 
-  open(content) {
+  open() {
     this.modalService
       .open(AddModalsComponent, {
         ariaLabelledBy: "modal-basic-title",
