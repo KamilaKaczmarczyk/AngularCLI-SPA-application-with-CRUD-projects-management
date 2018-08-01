@@ -11,7 +11,7 @@
             <div class="bd-example">
             <button type="button" class="btn btn-custom" (click)="openEdit(item)"><i class="fas fa-pen"></i> Edit</button>
             <button type="button" class="btn btn-custom" (click)="openDetail(item)"><i class="fas fa-pen"></i> Details</button>
-            <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
+            <button type="button" class="btn btn-danger" (click)="deleteProject(item)"><i class="fas fa-trash-alt"></i> Delete</button>
         </div>
         <div *ngIf="item.updateDate!==null && item.updateDate !== undefined" class="card-footer bg-transparent border-warning">Last update: {{item.updateDate |date:'dd-MM-y'}}</div>
     </div>

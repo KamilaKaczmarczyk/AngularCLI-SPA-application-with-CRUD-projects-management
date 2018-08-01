@@ -14,11 +14,15 @@ import { PROJECTS } from "../../models/mock-projects";
 })
 export class ContentComponent {
   closeResult: string;
-
   projects: Project[];
 
   getProjects(): void {
     this.projects = this.projectsService.getProjects();
+  }
+
+  deleteProject(item) {
+    const chooseProject = item.id;
+    this.projectsService.deleteProject(chooseProject);
   }
 
   public get hasProject(): boolean {
@@ -63,7 +67,7 @@ export class ContentComponent {
       }
     );
   }
-  openDetail(item){
+  openDetail(item) {
     const modal = this.modalService.open(DetailModalComponent, {
       ariaLabelledBy: "modal-basic-title",
       centered: true

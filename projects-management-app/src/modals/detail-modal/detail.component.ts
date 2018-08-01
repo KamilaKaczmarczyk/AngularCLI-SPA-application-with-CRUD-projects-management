@@ -1,6 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { ProjectsService } from "src/app/projects.service";
-import { NgbActiveModal, ModalDismissReasons, NgbModal } from "@ng-bootstrap/ng-bootstrap";
+import {
+  NgbActiveModal,
+  ModalDismissReasons,
+  NgbModal
+} from "@ng-bootstrap/ng-bootstrap";
 import { Project } from "src/models/interface";
 import { EditModalComponent } from "../../modals/edit-modal/edit-modal.component";
 
@@ -11,13 +15,17 @@ import { EditModalComponent } from "../../modals/edit-modal/edit-modal.component
 })
 export class DetailModalComponent implements OnInit {
   closeResult: string;
-  item :Project;
+  item: Project;
   projects: Project[];
 
-  getProject(){
+  getProject() {
     this.projectsService.getProjects();
-}
-    
+  }
+  deleteProject(item) {
+    const chooseProject = item.id;
+    this.projectsService.deleteProject(chooseProject);
+  }
+
   constructor(
     public activeModal: NgbActiveModal,
     private projectsService: ProjectsService,
@@ -40,7 +48,7 @@ export class DetailModalComponent implements OnInit {
       }
     );
   }
-  
+
   private getDismissReason(reason: any): string {
     if (reason === ModalDismissReasons.ESC) {
       return "by pressing ESC";

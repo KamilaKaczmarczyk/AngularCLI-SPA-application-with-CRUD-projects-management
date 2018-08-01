@@ -12,6 +12,6 @@
 </div>
 <div class="modal-footer border-warning">
     <button type="button" class="btn btn-custom" (click)="openEdit(item);activeModal.close('Close click')"><i class="fas fa-pen"></i> Edit</button>
-    <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
+    <button type="button" class="btn btn-danger" (click)="deleteProject(item);activeModal.close('Close click')"><i class="fas fa-trash-alt"></i> Delete</button>
     <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">Close</button>
 </div>

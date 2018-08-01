@@ -20,4 +20,8 @@ export class ProjectsService {
      const index = PROJECTS.findIndex(p => p.id === editedProject.id);
      PROJECTS.splice(index,1,editedProject);
   }
+  deleteProject(chooseProject){
+    const index = PROJECTS.findIndex(p=> p.id === chooseProject.id)
+    PROJECTS.splice(index,1);
+  }
 }
