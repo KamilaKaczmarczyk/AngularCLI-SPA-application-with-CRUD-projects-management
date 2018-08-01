@@ -25,3 +25,26 @@
     border-color: #FFCC00;
     box-shadow: 0 0 0 0.2rem rgba(255, 208, 0, 0.788);
 }
+.card-deck{
+    align-self: center;
+}
+.bd-example{
+    align-self: center;
+}
+.btn-custom{
+    margin-bottom: 5px;
+    margin-right: 0.5rem;
+    color: white;
+    background-color: #007bff;
+    border-color: #007bff;;
+}
+.btn-custom:focus{
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
+}
+.btn-custom:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+.btn-danger{
+    margin-bottom: 5px;
+}

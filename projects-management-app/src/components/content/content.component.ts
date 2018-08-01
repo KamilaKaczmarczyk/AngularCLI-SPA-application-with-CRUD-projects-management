@@ -3,6 +3,7 @@ import { ProjectsService } from "../../app/projects.service";
 import { Project } from "../../models/interface";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { AddModalsComponent } from "../../modals/add-modal/add_modal.component";
+import { EditModalComponent } from "../../modals/edit-modal/edit-modal.component";
 
 @Component({
   selector: "content",
@@ -17,8 +18,8 @@ export class ContentComponent {
   getProjects(): void {
     this.projects = this.projectsService.getProjects();
   }
-  
-  public  get hasProject() :boolean {
+
+  public get hasProject(): boolean {
     return this.projects.length !== 0;
   }
 
@@ -43,6 +44,22 @@ export class ContentComponent {
           this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
         }
       );
+  }
+  openEdit(item) {
+    const modal = this.modalService.open(EditModalComponent, {
+      ariaLabelledBy: "modal-basic-title",
+      centered: true
+    });
+    (<EditModalComponent>modal.componentInstance).item = item;
+
+    modal.result.then(
+      result => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      reason => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      }
+    );
   }
 
   private getDismissReason(reason: any): string {

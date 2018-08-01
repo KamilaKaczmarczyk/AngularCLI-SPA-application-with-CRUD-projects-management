@@ -1,5 +1,5 @@
 <div class="modal-header">
-    <h4 class="modal-title" id="modal-basic-title">Add new project</h4>
+    <h4 class="modal-title" id="modal-basic-title">Edit project</h4>
     <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
         <span aria-hidden="true">&times;</span>
     </button>
@@ -8,11 +8,11 @@
     <form>
         <div class="form-group">
             <label for="exampleFormControlInput1">Project Name:</label>
-            <input id="inputName" type="text" class="form-control" placeholder="Project name">
+            <input id="inputName" type="text" class="form-control" value="{{item.name}}">
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Description:</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" value="{{item.description}}"></textarea>
         </div>
 
         <div class="row">
@@ -20,7 +20,7 @@
                 <div class="form-group">
                     <label for="dateOfBirth">Project start:</label>
                     <div class="input-group">
-                        <input id="dateStart" class="form-control" placeholder="yyyy-mm-dd" name="dp1" ngbDatepicker #dp1="ngbDatepicker">
+                        <input id="dateStart" class="form-control" placeholder="yyyy-mm-dd" name="dp1" ngbDatepicker #dp1="ngbDatepicker" value="{{item.startTime}}">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" (click)="dp1.toggle()" type="button">
                                     <i class="fas fa-calendar-alt"></i>
@@ -33,7 +33,7 @@
                 <div class="form-group">
                     <label for="dateOfBirth">Project end:</label>
                     <div class="input-group">
-                        <input id="dateEnd" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                        <input id="dateEnd" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker" value="{{item.endTime}}">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" (click)="dp.toggle()" type="button">
                                     <i class="fas fa-calendar-alt"></i>
@@ -47,5 +47,5 @@
 </div>
 <div class="modal-footer">
     <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">Close</button>
-    <button type="button" class="btn btn-primary" (click)="setProject();activeModal.close('Close click')">Save</button>
+    <button type="button" class="btn btn-primary" (click)="setChanges();activeModal.close('Close click')">Save changes</button>
 </div>

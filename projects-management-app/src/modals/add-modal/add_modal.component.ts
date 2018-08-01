@@ -9,14 +9,10 @@ import { Project } from "src/models/interface";
   styleUrls: ["add_modal.component.scss"]
 })
 export class AddModalsComponent implements OnInit {
-  projects: Project[];
   inputName;
   inputStartProject;
   inputEndProject;
   textareaDescription;
-
-
-    
 
   constructor(
     public activeModal: NgbActiveModal,
@@ -24,17 +20,16 @@ export class AddModalsComponent implements OnInit {
   ) {}
 
   setProject() {
-    this.projects = [
-      {
-        id: this.projectsService.getProjects().length,
+     const newProject : Project={
+        id: null,
         name: this.inputName.value,
         description: this.textareaDescription.value,
         date: Date.now(),
         startTime: this.inputStartProject.value,
         endTime: this.inputEndProject.value
-      }
-    ];
-    this.projectsService.getProjects().push(this.projects[0]);
+      };
+      this.projectsService.addProject(newProject);
+    
   }
 
   ngOnInit(){
