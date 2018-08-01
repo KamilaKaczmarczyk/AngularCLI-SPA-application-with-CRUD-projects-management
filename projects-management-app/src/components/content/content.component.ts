@@ -4,6 +4,8 @@ import { Project } from "../../models/interface";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { AddModalsComponent } from "../../modals/add-modal/add_modal.component";
 import { EditModalComponent } from "../../modals/edit-modal/edit-modal.component";
+import { DetailModalComponent } from "../../modals/detail-modal/detail.component";
+import { PROJECTS } from "../../models/mock-projects";
 
 @Component({
   selector: "content",
@@ -51,6 +53,22 @@ export class ContentComponent {
       centered: true
     });
     (<EditModalComponent>modal.componentInstance).item = item;
+
+    modal.result.then(
+      result => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      reason => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      }
+    );
+  }
+  openDetail(item){
+    const modal = this.modalService.open(DetailModalComponent, {
+      ariaLabelledBy: "modal-basic-title",
+      centered: true
+    });
+    (<DetailModalComponent>modal.componentInstance).item = item;
 
     modal.result.then(
       result => {

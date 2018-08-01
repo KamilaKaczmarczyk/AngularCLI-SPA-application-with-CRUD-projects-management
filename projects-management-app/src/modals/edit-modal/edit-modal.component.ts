@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { ProjectsService } from 'src/app/projects.service';
-import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
+import { NgbActiveModal, NgbModal } from "@ng-bootstrap/ng-bootstrap";
 import { Project } from 'src/models/interface';
 
 @Component({
@@ -29,9 +29,10 @@ setChanges(){
         id: this.item.id,
         name: this.inputName.value,
         description: this.textareaDescription.value,
-        date: Date.now(),
+        updateDate: Date.now(),
         startTime: this.inputStartProject.value,
-        endTime: this.inputEndProject.value
+        endTime: this.inputEndProject.value,
+        date :this.item.date
       };
       this.projectsService.updateProject(editedProject);
 }

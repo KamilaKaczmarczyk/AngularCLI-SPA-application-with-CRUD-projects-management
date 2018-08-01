@@ -2,14 +2,17 @@
     <button *ngIf="!hasProject" class="btn btn-lg btn-outline-primary btn-add-custom" (click)="open()"><i class="fas fa-plus"></i> Add new project</button>
     <div class="card-deck">
         <div class="card border-warning mb-3" style="width: 20rem;" *ngFor="let item of projects">
-            <div class="card-header bg-transparent border-warning"><h5>{{item.name}}</h5>{{item.date |date}}</div>
+            <div class="card-header bg-transparent border-warning"><h5>{{item.name}}</h5>
+                <p style="float: right;">{{item.date |date:'dd-MM-y'}}</p>
+            </div>
             <div class="card-body text-dark">
               <p class="card-text">{{item.description}}</p>
             </div>
             <div class="bd-example">
             <button type="button" class="btn btn-custom" (click)="openEdit(item)"><i class="fas fa-pen"></i> Edit</button>
-            <button type="button" class="btn btn-custom"><i class="fas fa-pen"></i> Details</button>
+            <button type="button" class="btn btn-custom" (click)="openDetail(item)"><i class="fas fa-pen"></i> Details</button>
             <button type="button" class="btn btn-danger"><i class="fas fa-trash-alt"></i> Delete</button>
         </div>
+        <div *ngIf="item.updateDate!==null && item.updateDate !== undefined" class="card-footer bg-transparent border-warning">Last update: {{item.updateDate |date:'dd-MM-y'}}</div>
     </div>
 </div>

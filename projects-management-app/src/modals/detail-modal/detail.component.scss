@@ -1,0 +1,12 @@
+.btn-custom{
+    color: white;
+    background-color: #007bff;
+    border-color: #007bff;;
+}
+.btn-custom:focus{
+    box-shadow: 0 0 0 0.2rem rgba(0,123,255,.5);
+}
+.btn-custom:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
