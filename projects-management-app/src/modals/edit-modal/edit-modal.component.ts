@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
-import { ProjectsService } from 'src/app/projects.service';
+import { ProjectsService } from '../../app/projects.service';
 import { NgbActiveModal, NgbModal } from "@ng-bootstrap/ng-bootstrap";
-import { Project } from 'src/models/interface';
+import { Project } from '../../models/project';
 
 @Component({
     selector: 'edit-modal',

@@ -1,12 +1,12 @@
 import { Component, OnInit } from "@angular/core";
-import { ProjectsService } from "src/app/projects.service";
+import { ProjectsService } from "../../app/projects.service";
 import {
   NgbActiveModal,
   ModalDismissReasons,
   NgbModal
 } from "@ng-bootstrap/ng-bootstrap";
-import { Project } from "src/models/interface";
-import { EditModalComponent } from "../../modals/edit-modal/edit-modal.component";
+import { Project } from "../../models/project";
+import { EditModalComponent } from "../edit-modal/edit-modal.component";
 
 @Component({
   selector: "detail-modal",

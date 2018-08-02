@@ -1,11 +1,13 @@
 import { Component } from "@angular/core";
 import { ProjectsService } from "../../app/projects.service";
-import { Project } from "../../models/interface";
+import { Project} from "../../models/project";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { AddModalsComponent } from "../../modals/add-modal/add_modal.component";
 import { EditModalComponent } from "../../modals/edit-modal/edit-modal.component";
 import { DetailModalComponent } from "../../modals/detail-modal/detail.component";
-import { PROJECTS } from "../../models/mock-projects";
+import { AddNewProjectLifeCycleComponent } from "../../modals/add-projectLifeCycle-modal/add-projectLifeCycle.component";
+
+
 
 @Component({
   selector: "content",
@@ -15,23 +17,28 @@ import { PROJECTS } from "../../models/mock-projects";
 export class ContentComponent {
   closeResult: string;
   projects: Project[];
+  
 
   getProjects(): void {
     this.projects = this.projectsService.getProjects();
   }
 
+ 
+
   deleteProject(item) {
-    const chooseProject = item.id;
-    this.projectsService.deleteProject(chooseProject);
+    const chooseProjectId = item.id;
+    this.projectsService.deleteProject(chooseProjectId);
   }
 
   public get hasProject(): boolean {
     return this.projects.length !== 0;
   }
+  
 
   constructor(
     private projectsService: ProjectsService,
     private modalService: NgbModal
+    
   ) {
     this.getProjects();
   }
@@ -58,6 +65,20 @@ export class ContentComponent {
     });
     (<EditModalComponent>modal.componentInstance).item = item;
 
+    modal.result.then(
+      result => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      reason => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      }
+    );
+  }
+  openAddComment() {
+    const modal = this.modalService.open(AddNewProjectLifeCycleComponent, {
+      ariaLabelledBy: "modal-basic-title",
+      centered: true
+    });
     modal.result.then(
       result => {
         this.closeResult = `Closed with: ${result}`;

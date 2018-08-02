@@ -1,6 +1,6 @@
 import { Component } from "@angular/core";
 import { ProjectsService } from "../../app/projects.service";
-import { Project } from "../../models/interface";
+import { Project } from "../../models/project";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { AddModalsComponent } from "../../modals/add-modal/add_modal.component";
 

@@ -1,7 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
-import { ProjectsService } from "src/app/projects.service";
-import { Project } from "src/models/interface";
+import { ProjectsService } from "../../app/projects.service";
+import { Project } from "../../models/project";
 
 @Component({
   selector: "add_modal",

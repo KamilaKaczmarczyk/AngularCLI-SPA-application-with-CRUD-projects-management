@@ -1,3 +1,5 @@
+import { ProjectLifeCycle } from "./projectLifeCycle";
+
  export interface Project{
 id : number;
 name: string;
@@ -6,4 +8,7 @@ date?: number;
 updateDate?: number;
 startTime?: string;
 endTime?: string;
+projectLifeCycle?:ProjectLifeCycle;
 }
+
+

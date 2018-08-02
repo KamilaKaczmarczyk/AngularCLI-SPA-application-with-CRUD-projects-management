@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { Project } from "../models/interface";
+import { Project } from "../models/project";
 import { PROJECTS } from "../models/mock-projects";
 
 @Injectable({
@@ -8,20 +8,28 @@ import { PROJECTS } from "../models/mock-projects";
 export class ProjectsService {
   constructor() {}
 
+  private projectID(){
+    if(PROJECTS.length === 0){
+    return 1
+  }else
+     return PROJECTS.length +1;
+  };
+
   getProjects(): Project[] {
     return PROJECTS;
   }
   addProject(newProject: Project) {
-    newProject.id =
-      PROJECTS.length === 0 ? 1 : PROJECTS[PROJECTS.length - 1].id;
+    newProject.id = this.projectID();
     PROJECTS.push(newProject);
   }
   updateProject(editedProject: Project) {
      const index = PROJECTS.findIndex(p => p.id === editedProject.id);
      PROJECTS.splice(index,1,editedProject);
   }
-  deleteProject(chooseProject){
-    const index = PROJECTS.findIndex(p=> p.id === chooseProject.id)
+  deleteProject(chooseProjectId : number){
+    const index = PROJECTS.findIndex(p=> p.id === chooseProjectId);
     PROJECTS.splice(index,1);
   }
+
+  
 }

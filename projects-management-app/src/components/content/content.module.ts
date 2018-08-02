@@ -3,8 +3,10 @@ import { BrowserModule } from "@angular/platform-browser";
 import { ContentComponent } from "./content.component";
 import { NgbModule, NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { AddModalsComponent } from "../../modals/add-modal/add_modal.component";
-import { EditModalComponent } from "src/modals/edit-modal/edit-modal.component";
+import { EditModalComponent } from "../../modals/edit-modal/edit-modal.component";
 import { DetailModalComponent } from "../../modals/detail-modal/detail.component";
+import { AddNewProjectLifeCycleComponent } from "../../modals/add-projectLifeCycle-modal/add-projectLifeCycle.component";
+
 
 @NgModule({
   imports: [BrowserModule, NgbModule],
@@ -12,7 +14,8 @@ import { DetailModalComponent } from "../../modals/detail-modal/detail.component
     ContentComponent,
     AddModalsComponent,
     EditModalComponent,
-    DetailModalComponent
+    DetailModalComponent,
+    AddNewProjectLifeCycleComponent
   ],
   bootstrap: [],
   exports: [ContentComponent],
@@ -20,7 +23,8 @@ import { DetailModalComponent } from "../../modals/detail-modal/detail.component
   entryComponents: [
     AddModalsComponent,
     EditModalComponent,
-    DetailModalComponent
+    DetailModalComponent,
+    AddNewProjectLifeCycleComponent
   ]
 })
 export class ContentModule {}

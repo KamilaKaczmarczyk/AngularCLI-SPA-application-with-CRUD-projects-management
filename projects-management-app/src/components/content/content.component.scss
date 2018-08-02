@@ -2,8 +2,14 @@
     display: flex;
     justify-content:center;
     align-content: center;
+    flex-wrap:wrap;
+    justify-content: space-around;
     min-height:80%;
 
+}
+.card{
+    max-height: 30rem;
+    margin: 3rem;
 }
 .btn-add-custom{
     color: #FFCC00;
@@ -47,4 +53,12 @@
 }
 .btn-danger{
     margin-bottom: 5px;
+}
+.btn-warning{
+    margin-bottom: 5px;
+    margin-right: 0.5rem;
+    color: white;
+}
+.comment_display{
+    display: flex;
 }
