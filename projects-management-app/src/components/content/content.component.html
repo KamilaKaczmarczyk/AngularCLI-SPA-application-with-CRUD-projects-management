@@ -8,20 +8,24 @@
         </div>
         <div class="card-body text-dark">
             <p class="card-text">{{item.description}}</p>
-            <div *ngIf="item.projectLifeCycle !== null && item.projectLifeCycle !== undefined" style="display: block;">
+            <div *ngIf="item.projectLifeCycle.length !== 0" style="display: block;">
                 <p>Stages of the project:</p>
-                <div *ngFor="let stages of item.projectLifeCycle" class="comment_display">
-            <button type="button" class="btn btn-custom">
+                <div *ngFor="let stage of item.projectLifeCycle" class="comment_display">
+                    <p class="stage"><i class="fas fa-tasks"></i> {{stage.lifeCycle}}</p>
+                    <p>{{stage.name}}</p>
+                    <div>
+                    <button type="button" class="btn btn-custom">
                         <i class="fas fa-pen"></i>
                     </button>
                     <button type="button" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i>
                     </button>
                 </div>
+                </div>
             </div>
         </div>
         <div class="bd-example">
-            <button type="button" class="btn btn-warning" (click)="openAddComment()" >
+            <button type="button" class="btn btn-success" (click)="openAddStage(item)">
                 <i class="fas fa-plus"></i> Add stage</button>
             <button type="button" class="btn btn-custom" (click)="openEdit(item)">
                 <i class="fas fa-pen"></i> Edit</button>

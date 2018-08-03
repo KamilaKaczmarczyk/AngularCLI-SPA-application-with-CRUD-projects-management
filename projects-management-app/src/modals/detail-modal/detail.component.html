@@ -9,10 +9,25 @@
         <p style="float: right;">{{item.date|date:'dd-MM-y'}}</p>
         <p>{{item.description}}</p>
         <p>The project runs from {{item.startTime|date:'dd-MM-y'}} to {{item.endTime|date:'dd-MM-y'}}</p>
-        <p *ngIf="!!(item.updateDate)" class="smallFont">Last update was on {{item.updateDate|date:'dd-MM-y'}}</p>
+        <div *ngIf="item.projectLifeCycle.length !== 0" style="display: block;">
+                <p>Stages of the project:</p>
+                <div *ngFor="let stage of item.projectLifeCycle" class="comment_display">
+                    <p class="stage"><i class="fas fa-tasks"></i> {{stage.lifeCycle}}</p>
+                    <p>{{stage.name}}</p>
+                    <div>
+                    <button type="button" class="btn btn-custom">
+                        <i class="fas fa-pen"></i>
+                    </button>
+                    <button type="button" class="btn btn-danger">
+                        <i class="fas fa-trash-alt"></i>
+                    </button>
+                </div>
+                </div>
+            </div>
+            <p *ngIf="!!(item.updateDate)" class="smallFont">Last update was on {{item.updateDate|date:'dd-MM-y'}}</p>
     </div>
     <div class="modal-footer border-warning">
-        <button type="button" class="btn btn-custom" (click)="openEdit(item);activeModal.close('Close click')">
+        <button type="button" class="btn btn-primary" (click)="openEdit(item);activeModal.close('Close click')">
             <i class="fas fa-pen"></i> Edit</button>
         <button type="button" class="btn btn-danger" (click)="deleteProject(item);activeModal.close('Close click')">
             <i class="fas fa-trash-alt"></i> Delete</button>

@@ -1,4 +1,5 @@
 .btn-custom{
+    margin-right: 0.5rem;
     color: white;
     background-color: #007bff;
     border-color: #007bff;;
@@ -13,3 +14,19 @@
 .smallFont{
     font-size: 0.8rem;
 }
+.comment_display{
+    display: flex;
+    justify-content: space-around;
+}
+.stage{
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    border-radius: 0.25rem;
+    text-align: center;
+    padding-top: 0.375rem;
+    padding-right: 0.75rem;
+    padding-bottom: 0.375rem;
+    padding-left: 0.75rem;
+}
+

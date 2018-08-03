@@ -8,7 +8,7 @@ date?: number;
 updateDate?: number;
 startTime?: string;
 endTime?: string;
-projectLifeCycle?:ProjectLifeCycle;
+projectLifeCycle?:ProjectLifeCycle[];
 }
 
 

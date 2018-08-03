@@ -32,7 +32,8 @@ setChanges(){
         updateDate: Date.now(),
         startTime: this.inputStartProject.value,
         endTime: this.inputEndProject.value,
-        date :this.item.date
+        date :this.item.date,
+        projectLifeCycle: this.item.projectLifeCycle
       };
       this.projectsService.updateProject(editedProject);
 }

@@ -4,26 +4,25 @@
         <span aria-hidden="true">&times;</span>
     </button>
 </div>
-<div class="modal-body">
-    <form>
+<form>
+    <div class="modal-body">
         <div class="form-group">
             <label for="exampleFormControlInput1">Project Name:</label>
-            <input id="inputName" type="text" class="form-control" placeholder="Project name">
+            <input id="inputName" type="text" class="form-control" placeholder="Project name" required >
         </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Description:</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" required></textarea>
         </div>
-
         <div class="row">
             <div class="col">
                 <div class="form-group">
                     <label for="dateOfBirth">Project start:</label>
                     <div class="input-group">
-                        <input id="dateStart" class="form-control" placeholder="yyyy-mm-dd" name="dp1" ngbDatepicker #dp1="ngbDatepicker">
+                        <input id="dateStart" class="form-control" placeholder="yyyy-mm-dd" name="dp1" ngbDatepicker #dp1="ngbDatepicker" required>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" (click)="dp1.toggle()" type="button">
-                                    <i class="fas fa-calendar-alt"></i>
+                                <i class="fas fa-calendar-alt"></i>
                             </button>
                         </div>
                     </div>
@@ -33,19 +32,20 @@
                 <div class="form-group">
                     <label for="dateOfBirth">Project end:</label>
                     <div class="input-group">
-                        <input id="dateEnd" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                        <input id="dateEnd" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker" required>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" (click)="dp.toggle()" type="button">
-                                    <i class="fas fa-calendar-alt"></i>
+                                <i class="fas fa-calendar-alt"></i>
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </form>
-</div>
-<div class="modal-footer border-warning">
-    <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">Close</button>
-    <button type="button" class="btn btn-primary" (click)="setProject();activeModal.close('Close click')">Save</button>
-</div>
+        <ngb-alert *ngIf="dangerMessage" type="danger" (close)="dangerMessage = null">{{ dangerMessage }}</ngb-alert>
+    </div>
+    <div class="modal-footer border-warning">
+        <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">Close</button>
+        <button type="button" class="btn btn-primary" (click)="seveProject()">Save</button>
+    </div>
+</form>

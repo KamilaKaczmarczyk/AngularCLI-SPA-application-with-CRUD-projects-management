@@ -1,0 +1,15 @@
+
+.stage_input{
+    border:1px solid #28a745;
+    background-color: white;
+    cursor: default;
+}
+.stage_input:focus{
+    box-shadow: 0 0 0 0 rgba(0,123,255,.25);
+}
+.stage_input:not(:disabled):not(.disabled) {
+    cursor: default;
+}
+.btn-group{
+    margin-bottom: 1rem;
+}

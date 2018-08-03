@@ -54,11 +54,23 @@
 .btn-danger{
     margin-bottom: 5px;
 }
-.btn-warning{
+.btn-success{
     margin-bottom: 5px;
     margin-right: 0.5rem;
     color: white;
 }
 .comment_display{
     display: flex;
+    justify-content: space-around;
+}
+.stage{
+    color: #fff;
+    background-color: #28a745;
+    border-color: #28a745;
+    border-radius: 0.25rem;
+    text-align: center;
+    padding-top: 0.375rem;
+    padding-right: 0.75rem;
+    padding-bottom: 0.375rem;
+    padding-left: 0.75rem;
 }

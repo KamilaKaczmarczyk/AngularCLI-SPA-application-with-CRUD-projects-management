@@ -1,6 +1,6 @@
 export enum LifeCycle {
-    initiation,
-    planning,
-    execution,
-    closure
+    Initiation,
+    Planning,
+    Execution,
+    Closure
 }

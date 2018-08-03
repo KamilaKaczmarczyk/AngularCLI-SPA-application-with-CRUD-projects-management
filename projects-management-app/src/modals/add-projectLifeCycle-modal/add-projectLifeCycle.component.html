@@ -8,23 +8,27 @@
     <form>
         <div class="btn-group mr-3">
             <div class="btn-group" ngbDropdown role="group" aria-label="Button group with nested dropdown">
-                <button type= "button"class="btn btn-outline-warning" ngbDropdownToggle >Choose stage</button>
-                <div class="dropdown-menu" ngbDropdownMenu>
-                    <button *ngFor="let stage of getLifeCycle()" type= "button" class="dropdown-item">{{stage}}</button>
+                <button type= "button"class="btn btn-outline-success" ngbDropdownToggle >Choose stage</button>
+                <div class="dropdown-menu" ngbDropdownMenu >
+                    <button *ngFor="let stage of getLifeCycle()" type= "button" class="dropdown-item" (click)= "setInputValue(stage)">{{stage}}</button>
                 </div>
-                <input id="stage" class="border-warning btn">
             </div>
+            <input id="stage" type="text" class="form-control btn stage_input" readonly required>
         </div>
         <div class="form-group">
+                <label for="exampleFormControlInput1">Stage Name:</label>
+                <input id="inputName" type="text" class="form-control" placeholder="Stage name" required>
+            </div>
+        <div class="form-group">
             <label for="exampleFormControlTextarea1">Comment:</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2"></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" required></textarea>
         </div>
         <div class="row">
             <div class="col">
                 <div class="form-group">
                     <label for="dateOfBirth">Start:</label>
                     <div class="input-group">
-                        <input id="dateStart" class="form-control" placeholder="yyyy-mm-dd" name="dp1" ngbDatepicker #dp1="ngbDatepicker">
+                        <input id="dateStart" class="form-control" placeholder="yyyy-mm-dd" name="dp1" ngbDatepicker #dp1="ngbDatepicker" required>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" (click)="dp1.toggle()" type="button">
                                 <i class="fas fa-calendar-alt"></i>
@@ -37,7 +41,7 @@
                 <div class="form-group">
                     <label for="dateOfBirth">End:</label>
                     <div class="input-group">
-                        <input id="dateEnd" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker">
+                        <input id="dateEnd" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker" required>
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" (click)="dp.toggle()" type="button">
                                 <i class="fas fa-calendar-alt"></i>
@@ -51,5 +55,5 @@
 </div>
 <div class="modal-footer border-warning">
     <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">Close</button>
-    <button type="button" class="btn btn-primary" (click)="activeModal.close('Close click')">Save</button>
+    <button type="button" class="btn btn-primary" (click)="setProjectLifeCycle();activeModal.close('Close click')">Save</button>
 </div>

@@ -74,11 +74,12 @@ export class ContentComponent {
       }
     );
   }
-  openAddComment() {
+  openAddStage(item) {
     const modal = this.modalService.open(AddNewProjectLifeCycleComponent, {
       ariaLabelledBy: "modal-basic-title",
       centered: true
     });
+    (<AddNewProjectLifeCycleComponent>modal.componentInstance).item = item;
     modal.result.then(
       result => {
         this.closeResult = `Closed with: ${result}`;
