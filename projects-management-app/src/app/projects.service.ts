@@ -40,4 +40,9 @@ export class ProjectsService {
     const indexPLC = PROJECTS[index].projectLifeCycle.findIndex(p=> p.id === changedProjectLifeCycle.id);
     PROJECTS[index].projectLifeCycle[indexPLC] = changedProjectLifeCycle;
   }
+  deleteStage(chooseStageId:number,chooseProjectId:number){
+    const index = PROJECTS.findIndex(p => p.id === chooseProjectId);
+    const indexPLC = PROJECTS[index].projectLifeCycle.findIndex(p=> p.id === chooseStageId);
+    PROJECTS[index].projectLifeCycle.splice(indexPLC,1);
+  }
 }

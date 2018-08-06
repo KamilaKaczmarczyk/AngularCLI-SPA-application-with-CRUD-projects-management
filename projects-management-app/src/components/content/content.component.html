@@ -8,16 +8,16 @@
         </div>
         <div class="card-body text-dark">
             <p class="card-text">{{item.description}}</p>
-            <div *ngIf="item.projectLifeCycle.length !== 0" style="display: block;">
+            <div *ngIf="item.projectLifeCycle.length !== 0" class="stage_display">
                 <p>Stages of the project:</p>
                 <div *ngFor="let stage of item.projectLifeCycle" class="comment_display">
                     <p class="stage"><i class="fas fa-tasks"></i> {{stage.lifeCycle}}</p>
-                    <p>{{stage.name}}</p>
+                    <p class="stage_name">{{stage.name}}</p>
                     <div>
                     <button type="button" class="btn btn-custom" (click)="openEditStage(item,stage)">
                         <i class="fas fa-pen"></i>
                     </button>
-                    <button type="button" class="btn btn-danger">
+                    <button type="button" class="btn btn-danger" (click)="deleteStage(item,stage)">
                         <i class="fas fa-trash-alt"></i>
                     </button>
                 </div>

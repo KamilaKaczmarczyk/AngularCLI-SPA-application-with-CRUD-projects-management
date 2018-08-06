@@ -1,14 +1,12 @@
 import { Component } from "@angular/core";
 import { ProjectsService } from "../../app/projects.service";
-import { Project} from "../../models/project";
+import { Project } from "../../models/project";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { AddModalsComponent } from "../../modals/add-modal/add_modal.component";
 import { EditModalComponent } from "../../modals/edit-modal/edit-modal.component";
 import { DetailModalComponent } from "../../modals/detail-modal/detail.component";
 import { AddNewProjectLifeCycleComponent } from "../../modals/add-projectLifeCycle-modal/add-projectLifeCycle.component";
 import { EditProjectLifeCycleComponent } from "../../modals/edit-projrctLifeCycle-modal/edit-projectLifeCycle.component";
-
-
 
 @Component({
   selector: "content",
@@ -18,28 +16,24 @@ import { EditProjectLifeCycleComponent } from "../../modals/edit-projrctLifeCycl
 export class ContentComponent {
   closeResult: string;
   projects: Project[];
-  
 
   getProjects(): void {
     this.projects = this.projectsService.getProjects();
   }
-
- 
 
   deleteProject(item) {
     const chooseProjectId = item.id;
     this.projectsService.deleteProject(chooseProjectId);
   }
 
+
   public get hasProject(): boolean {
     return this.projects.length !== 0;
   }
-  
 
   constructor(
     private projectsService: ProjectsService,
     private modalService: NgbModal
-    
   ) {
     this.getProjects();
   }
@@ -93,7 +87,8 @@ export class ContentComponent {
   openDetail(item) {
     const modal = this.modalService.open(DetailModalComponent, {
       ariaLabelledBy: "modal-basic-title",
-      centered: true
+      centered: true,
+      size: "lg"
     });
     (<DetailModalComponent>modal.componentInstance).item = item;
 
@@ -106,7 +101,7 @@ export class ContentComponent {
       }
     );
   }
-  openEditStage(item,stage) {
+  openEditStage(item, stage) {
     const modal = this.modalService.open(EditProjectLifeCycleComponent, {
       ariaLabelledBy: "modal-basic-title",
       centered: true
@@ -132,5 +127,10 @@ export class ContentComponent {
     } else {
       return `with: ${reason}`;
     }
+  }
+  deleteStage(item, stage) {
+    const chooseProjectId = item.id;
+    const chooseStageId = stage.id;
+    this.projectsService.deleteStage(chooseStageId, chooseProjectId);
   }
 }

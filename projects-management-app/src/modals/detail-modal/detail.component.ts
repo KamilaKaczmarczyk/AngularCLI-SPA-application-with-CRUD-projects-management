@@ -26,6 +26,11 @@ export class DetailModalComponent implements OnInit {
     const chooseProject = item.id;
     this.projectsService.deleteProject(chooseProject);
   }
+  deleteStage(item, stage) {
+    const chooseProjectId = item.id;
+    const chooseStageId = stage.id;
+    this.projectsService.deleteStage(chooseStageId, chooseProjectId);
+  }
 
   constructor(
     public activeModal: NgbActiveModal,

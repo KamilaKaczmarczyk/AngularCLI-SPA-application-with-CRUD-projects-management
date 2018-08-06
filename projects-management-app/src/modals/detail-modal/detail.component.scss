@@ -14,9 +14,8 @@
 .smallFont{
     font-size: 0.8rem;
 }
-.comment_display{
-    display: flex;
-    justify-content: space-around;
+.btn_stage{
+  margin: auto;
 }
 .stage{
     color: #fff;
@@ -28,5 +27,20 @@
     padding-right: 0.75rem;
     padding-bottom: 0.375rem;
     padding-left: 0.75rem;
+}
+.stage_name{
+    text-align: center;
+    overflow: hidden;
+    white-space: pre-wrap;
+    
+}
+.stage_comment{
+    overflow: hidden;
+    white-space: pre-wrap;
+    
+}
+.btn_stage{
+    display: flex;
+    justify-content: space-around;
 }
 

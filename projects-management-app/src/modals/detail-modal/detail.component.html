@@ -1,31 +1,35 @@
 <form>
     <div class="modal-header border-warning">
         <h5 class="modal-title" id="exampleModalCenterTitle">{{item.name}}</h5>
+        <p style="float: right;">{{item.date|date:'dd-MM-y'}}
         <button type="button" class="close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
     <div class="modal-body">
-        <p style="float: right;">{{item.date|date:'dd-MM-y'}}</p>
         <p>{{item.description}}</p>
-        <p>The project runs from {{item.startTime|date:'dd-MM-y'}} to {{item.endTime|date:'dd-MM-y'}}</p>
+        <p>The project runs from {{item.startTime|date:'dd-MM-y'}} to {{item.endTime|date:'dd-MM-y'}}.</p>
         <div *ngIf="item.projectLifeCycle.length !== 0" style="display: block;">
-                <p>Stages of the project:</p>
-                <div *ngFor="let stage of item.projectLifeCycle" class="comment_display">
-                    <p class="stage"><i class="fas fa-tasks"></i> {{stage.lifeCycle}}</p>
-                    <p>{{stage.name}}</p>
-                    <p>{{stage.comment}}</p>
+            <p>Stages of the project:</p>
+            <div *ngFor="let stage of item.projectLifeCycle">
+                <p class="stage">
+                    <i class="fas fa-tasks"></i> {{stage.lifeCycle}}</p>
+                <h6 class="stage_name">{{stage.name}}</h6>
+                <p class="stage_comment">{{stage.comment}}</p>
+                <div class="btn_stage">
+                    <p>The stage runs from {{stage.start|date:'dd-MM-y'}} to {{stage.end|date:'dd-MM-y'}}.</p>
                     <div>
-                    <button type="button" class="btn btn-custom">
-                        <i class="fas fa-pen" (click)="openEditStage(item,stage)"></i>
-                    </button>
-                    <button type="button" class="btn btn-danger">
-                        <i class="fas fa-trash-alt"></i>
-                    </button>
-                </div>
+                        <button type="button" class="btn btn-custom">
+                            <i class="fas fa-pen" (click)="openEditStage(item,stage);activeModal.close('Close click')"></i>
+                        </button>
+                        <button type="button" class="btn btn-danger" (click)="deleteStage(item,stage)">
+                            <i class="fas fa-trash-alt"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
-            <p *ngIf="!!(item.updateDate)" class="smallFont">Last update was on {{item.updateDate|date:'dd-MM-y'}}</p>
+        </div>
+        <p *ngIf="!!(item.updateDate)" class="smallFont">Last update was on {{item.updateDate|date:'dd-MM-y'}}</p>
     </div>
     <div class="modal-footer border-warning">
         <button type="button" class="btn btn-primary" (click)="openEdit(item);activeModal.close('Close click')">
