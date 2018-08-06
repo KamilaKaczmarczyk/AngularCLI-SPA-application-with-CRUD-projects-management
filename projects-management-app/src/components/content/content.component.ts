@@ -6,6 +6,7 @@ import { AddModalsComponent } from "../../modals/add-modal/add_modal.component";
 import { EditModalComponent } from "../../modals/edit-modal/edit-modal.component";
 import { DetailModalComponent } from "../../modals/detail-modal/detail.component";
 import { AddNewProjectLifeCycleComponent } from "../../modals/add-projectLifeCycle-modal/add-projectLifeCycle.component";
+import { EditProjectLifeCycleComponent } from "../../modals/edit-projrctLifeCycle-modal/edit-projectLifeCycle.component";
 
 
 
@@ -95,6 +96,23 @@ export class ContentComponent {
       centered: true
     });
     (<DetailModalComponent>modal.componentInstance).item = item;
+
+    modal.result.then(
+      result => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      reason => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      }
+    );
+  }
+  openEditStage(item,stage) {
+    const modal = this.modalService.open(EditProjectLifeCycleComponent, {
+      ariaLabelledBy: "modal-basic-title",
+      centered: true
+    });
+    (<EditProjectLifeCycleComponent>modal.componentInstance).item = item;
+    (<EditProjectLifeCycleComponent>modal.componentInstance).stage = stage;
 
     modal.result.then(
       result => {

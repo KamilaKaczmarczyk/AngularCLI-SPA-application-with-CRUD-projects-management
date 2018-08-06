@@ -44,8 +44,9 @@
             </div>
         </div>
     </form>
+    <ngb-alert *ngIf="dangerMessage" type="danger" (close)="dangerMessage = null">{{ dangerMessage }}</ngb-alert>
 </div>
 <div class="modal-footer border-warning">
     <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">Close</button>
-    <button type="button" class="btn btn-primary" (click)="setChanges();activeModal.close('Close click')">Save changes</button>
+    <button type="button" class="btn btn-primary" (click)="seveChanges()">Save changes</button>
 </div>

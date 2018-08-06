@@ -9,12 +9,11 @@ import { ProjectLifeCycle } from "../models/projectLifeCycle";
 export class ProjectsService {
   constructor() {}
 
-  private projectID(){
-    if(PROJECTS.length === 0){
-    return 1
-  }else
-     return PROJECTS.length +1;
-  };
+  private projectID() {
+    if (PROJECTS.length === 0) {
+      return 1;
+    } else return PROJECTS.length + 1;
+  }
 
   getProjects(): Project[] {
     return PROJECTS;
@@ -24,20 +23,21 @@ export class ProjectsService {
     PROJECTS.push(newProject);
   }
   updateProject(editedProject: Project) {
-     const index = PROJECTS.findIndex(p => p.id === editedProject.id);
-     PROJECTS[index] = editedProject;
+    const index = PROJECTS.findIndex(p => p.id === editedProject.id);
+    PROJECTS[index] = editedProject;
   }
-  deleteProject(chooseProjectId : number){
-    const index = PROJECTS.findIndex(p=> p.id === chooseProjectId);
-    PROJECTS.splice(index,1);
+  deleteProject(chooseProjectId: number) {
+    const index = PROJECTS.findIndex(p => p.id === chooseProjectId);
+    PROJECTS.splice(index, 1);
   }
-
-
-  addProjectLifeCycleToProject(newProjectLifeCycle :ProjectLifeCycle, projectid:number){
-    const index = PROJECTS.findIndex(p=> p.id === projectid);
-    newProjectLifeCycle.id = (PROJECTS[index].projectLifeCycle.length === 0)? 1 : PROJECTS[index].projectLifeCycle.length + 1;
+  addProjectLifeCycleToProject(newProjectLifeCycle: ProjectLifeCycle,projectid: number) {
+    const index = PROJECTS.findIndex(p => p.id === projectid);
+    newProjectLifeCycle.id =PROJECTS[index].projectLifeCycle.length === 0? 1: PROJECTS[index].projectLifeCycle.length + 1;
     PROJECTS[index].projectLifeCycle.push(newProjectLifeCycle);
   }
-
-  
+  editProjectLifeCycle(changedProjectLifeCycle:ProjectLifeCycle,projectid:number){
+    const index = PROJECTS.findIndex(p => p.id === projectid);
+    const indexPLC = PROJECTS[index].projectLifeCycle.findIndex(p=> p.id === changedProjectLifeCycle.id);
+    PROJECTS[index].projectLifeCycle[indexPLC] = changedProjectLifeCycle;
+  }
 }

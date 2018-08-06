@@ -13,22 +13,22 @@
                     <button *ngFor="let stage of getLifeCycle()" type= "button" class="dropdown-item" (click)= "setInputValue(stage)">{{stage}}</button>
                 </div>
             </div>
-            <input id="stage" type="text" class="form-control btn stage_input" readonly required>
+            <input id="stage" type="text" class="form-control btn stage_input" value="{{stage.lifeCycle}}" readonly >
         </div>
         <div class="form-group">
                 <label for="exampleFormControlInput1">Stage Name:</label>
-                <input id="inputName" type="text" class="form-control" placeholder="Stage name" required>
+                <input id="inputName" type="text" class="form-control" value="{{stage.name}}" >
             </div>
         <div class="form-group">
             <label for="exampleFormControlTextarea1">Comment:</label>
-            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" required></textarea>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="2" value ="{{stage.comment}}"></textarea>
         </div>
         <div class="row">
             <div class="col">
                 <div class="form-group">
                     <label for="dateOfBirth">Start:</label>
                     <div class="input-group">
-                        <input id="dateStart" class="form-control" placeholder="yyyy-mm-dd" name="dp1" ngbDatepicker #dp1="ngbDatepicker" required>
+                        <input id="dateStart" class="form-control" placeholder="yyyy-mm-dd" name="dp1" ngbDatepicker #dp1="ngbDatepicker" value="{{stage.start}}">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" (click)="dp1.toggle()" type="button">
                                 <i class="fas fa-calendar-alt"></i>
@@ -41,7 +41,7 @@
                 <div class="form-group">
                     <label for="dateOfBirth">End:</label>
                     <div class="input-group">
-                        <input id="dateEnd" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker" required>
+                        <input id="dateEnd" class="form-control" placeholder="yyyy-mm-dd" name="dp" ngbDatepicker #dp="ngbDatepicker" value="{{stage.end}}">
                         <div class="input-group-append">
                             <button class="btn btn-outline-secondary" (click)="dp.toggle()" type="button">
                                 <i class="fas fa-calendar-alt"></i>
@@ -56,5 +56,5 @@
 </div>
 <div class="modal-footer border-warning">
     <button type="button" class="btn btn-secondary" (click)="activeModal.close('Close click')">Close</button>
-    <button type="button" class="btn btn-primary" (click)="seveProjectLifeCycle()">Save</button>
+    <button type="button" class="btn btn-primary" (click)="seveProjectLifeCycleChange()">Save</button>
 </div>

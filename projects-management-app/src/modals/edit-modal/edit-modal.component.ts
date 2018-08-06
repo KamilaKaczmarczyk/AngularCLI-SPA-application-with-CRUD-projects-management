@@ -15,6 +15,7 @@ export class EditModalComponent implements OnInit{
     textareaDescription;
     projects: Project[];
     item :Project;
+    dangerMessage: string;
 
     constructor(
         public activeModal: NgbActiveModal,
@@ -24,6 +25,30 @@ export class EditModalComponent implements OnInit{
 getProject(){
     this.projectsService.getProjects();
 }
+seveChanges() {
+    if (this.isAddModalFormValid()) {
+      return this.setChanges();
+    } else {
+      this.setDangerMessage();
+    }
+  }
+
+  private isAddModalFormValid() {
+    return (
+      this.inputName.value !== "" &&
+      this.textareaDescription.value !== "" &&
+      this.inputStartProject.value !== "" &&
+      this.inputEndProject.value !== ""
+    );
+  }
+
+  public setDangerMessage() {
+    this.dangerMessage = "Warning! Any fields can be empty!";
+    setTimeout(() => this.clearDangerMessage(), 3000);
+  }
+  private clearDangerMessage() {
+    this.dangerMessage = null;
+  }
 setChanges(){
     const editedProject : Project={
         id: this.item.id,
@@ -36,6 +61,7 @@ setChanges(){
         projectLifeCycle: this.item.projectLifeCycle
       };
       this.projectsService.updateProject(editedProject);
+      this.activeModal.close();
 }
 ngOnInit(){
     this.inputName = <HTMLInputElement>document.getElementById('inputName');

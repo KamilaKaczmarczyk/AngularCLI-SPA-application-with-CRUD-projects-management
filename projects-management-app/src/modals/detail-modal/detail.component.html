@@ -14,9 +14,10 @@
                 <div *ngFor="let stage of item.projectLifeCycle" class="comment_display">
                     <p class="stage"><i class="fas fa-tasks"></i> {{stage.lifeCycle}}</p>
                     <p>{{stage.name}}</p>
+                    <p>{{stage.comment}}</p>
                     <div>
                     <button type="button" class="btn btn-custom">
-                        <i class="fas fa-pen"></i>
+                        <i class="fas fa-pen" (click)="openEditStage(item,stage)"></i>
                     </button>
                     <button type="button" class="btn btn-danger">
                         <i class="fas fa-trash-alt"></i>

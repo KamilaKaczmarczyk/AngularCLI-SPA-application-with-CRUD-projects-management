@@ -1,17 +1,18 @@
 import { Component, OnInit } from "@angular/core";
-import { NgbActiveModal } from "@ng-bootstrap/ng-bootstrap";
 import { ProjectsService } from "../../app/projects.service";
+import { NgbActiveModal } from "../../../node_modules/@ng-bootstrap/ng-bootstrap";
 import { LifeCycle } from "../../models/lifeCycleEnum";
 import { ProjectLifeCycle } from "../../models/projectLifeCycle";
 import { Project } from "../../models/project";
 
 @Component({
-  selector: "add-new-projectLifeCycle",
-  templateUrl: "add-projectLifeCycle.component.html",
-  styleUrls: ["add-projectLifeCycle.component.scss"]
+  selector: "edit-projectLifeCycle",
+  templateUrl: "edit-projectLifeCycle.component.html",
+  styleUrls: ["edit-projectLifeCycle.component.scss"]
 })
-export class AddNewProjectLifeCycleComponent implements OnInit {
+export class EditProjectLifeCycleComponent implements OnInit {
   item: Project;
+  stage: ProjectLifeCycle;
   lifeCycleType = LifeCycle;
   stageInput;
   inputStartLifeCycle;
@@ -24,13 +25,13 @@ export class AddNewProjectLifeCycleComponent implements OnInit {
     const lifeCycle = Object.keys(this.lifeCycleType);
     return lifeCycle.slice(lifeCycle.length / 2);
   }
-
   setInputValue(stage) {
     this.stageInput.value = stage;
   }
-  seveProjectLifeCycle() {
+
+  seveProjectLifeCycleChange() {
     if (this.isAddModalFormValid()) {
-      return this.setProjectLifeCycle();
+      return this.setProjectLifeCycleChange();
     } else {
       this.setDangerMessage();
     }
@@ -41,14 +42,14 @@ export class AddNewProjectLifeCycleComponent implements OnInit {
       this.inputName.value !== "" &&
       this.textareaComment.value !== "" &&
       this.inputStartLifeCycle.value !== "" &&
-      this.inputEndLifeCycle.value !== ""&&
-      this.stageInput.value!==""
+      this.inputEndLifeCycle.value !== "" &&
+      this.stageInput.value !== ""
     );
   }
 
-  setProjectLifeCycle() {
-    const newProjectLifeCycle: ProjectLifeCycle = {
-      id: null,
+  setProjectLifeCycleChange() {
+    const changedProjectLifeCycle: ProjectLifeCycle = {
+      id: this.stage.id,
       name: this.inputName.value,
       lifeCycle: this.stageInput.value,
       start: this.inputStartLifeCycle.value,
@@ -56,8 +57,8 @@ export class AddNewProjectLifeCycleComponent implements OnInit {
       comment: this.textareaComment.value
     };
     const projectid = this.item.id;
-    this.projectsService.addProjectLifeCycleToProject(
-      newProjectLifeCycle,
+    this.projectsService.editProjectLifeCycle(
+      changedProjectLifeCycle,
       projectid
     );
     this.activeModal.close();

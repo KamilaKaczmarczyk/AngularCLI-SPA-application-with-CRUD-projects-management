@@ -7,6 +7,7 @@ import {
 } from "@ng-bootstrap/ng-bootstrap";
 import { Project } from "../../models/project";
 import { EditModalComponent } from "../edit-modal/edit-modal.component";
+import { EditProjectLifeCycleComponent } from "../edit-projrctLifeCycle-modal/edit-projectLifeCycle.component";
 
 @Component({
   selector: "detail-modal",
@@ -38,6 +39,23 @@ export class DetailModalComponent implements OnInit {
       centered: true
     });
     (<EditModalComponent>modal.componentInstance).item = item;
+
+    modal.result.then(
+      result => {
+        this.closeResult = `Closed with: ${result}`;
+      },
+      reason => {
+        this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
+      }
+    );
+  }
+  openEditStage(item,stage) {
+    const modal = this.modalService.open(EditProjectLifeCycleComponent, {
+      ariaLabelledBy: "modal-basic-title",
+      centered: true
+    });
+    (<EditProjectLifeCycleComponent>modal.componentInstance).item = item;
+    (<EditProjectLifeCycleComponent>modal.componentInstance).stage = stage;
 
     modal.result.then(
       result => {
