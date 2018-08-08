@@ -65,8 +65,6 @@
 }
 .stage{
     color: #fff;
-    background-color: #28a745;
-    border-color: #28a745;
     border-radius: 0.25rem;
     padding-top: 0.375rem;
     padding-right: 0.75rem;
@@ -82,4 +80,16 @@
     overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+}
+.bg-success{
+    background-color: #00a651;
+}
+.bg-info{
+    background-color: #21a9e1;
+}
+.bg-warning{
+    background-color: #fad839;
+}
+.bg-danger{
+    background-color: #cc2424;
 }

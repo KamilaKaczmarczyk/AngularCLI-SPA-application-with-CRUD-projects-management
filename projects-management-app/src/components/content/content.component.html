@@ -11,7 +11,8 @@
             <div *ngIf="item.projectLifeCycle.length !== 0" class="stage_display">
                 <p>Stages of the project:</p>
                 <div *ngFor="let stage of item.projectLifeCycle" class="comment_display">
-                    <p class="stage"><i class="fas fa-tasks"></i> {{stage.lifeCycle}}</p>
+                    <p class="stage" [ngClass]="{'bg-info':isInitiation(stage), 'bg-warning':isExecution(stage), 'bg-success':isPlanning(stage), 'bg-danger':isClosure(stage)}">
+                        <i class="fas fa-tasks"></i> {{stage.lifeCycle}}</p>
                     <p class="stage_name">{{stage.name}}</p>
                     <div>
                     <button type="button" class="btn btn-custom" (click)="openEditStage(item,stage)">

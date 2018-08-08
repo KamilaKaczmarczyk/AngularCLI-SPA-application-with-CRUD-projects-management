@@ -133,4 +133,16 @@ export class ContentComponent {
     const chooseStageId = stage.id;
     this.projectsService.deleteStage(chooseStageId, chooseProjectId);
   }
+  isInitiation(stage){
+    return (stage.lifeCycle === "Initiation")?true:false;
+  }
+  isExecution(stage){
+    return (stage.lifeCycle === "Execution")?true:false;
+  }
+  isPlanning(stage){
+    return (stage.lifeCycle === "Planning")?true:false;
+  }
+  isClosure(stage){
+    return (stage.lifeCycle === "Closure")?true:false;
+  }
 }
