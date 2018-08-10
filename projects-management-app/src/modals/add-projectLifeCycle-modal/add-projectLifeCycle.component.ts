@@ -22,7 +22,7 @@ export class AddNewProjectLifeCycleComponent implements OnInit {
 
   getLifeCycle(): Array<string> {
     const lifeCycle = Object.keys(this.lifeCycleType);
-    return lifeCycle.slice(lifeCycle.length / 2);
+    return lifeCycle;
   }
 
   setInputValue(stage) {

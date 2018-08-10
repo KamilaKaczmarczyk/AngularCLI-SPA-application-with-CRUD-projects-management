@@ -7,10 +7,11 @@ import { EditModalComponent } from "../../modals/edit-modal/edit-modal.component
 import { DetailModalComponent } from "../../modals/detail-modal/detail.component";
 import { AddNewProjectLifeCycleComponent } from "../../modals/add-projectLifeCycle-modal/add-projectLifeCycle.component";
 import { EditProjectLifeCycleComponent } from "../../modals/edit-projrctLifeCycle-modal/edit-projectLifeCycle.component";
+import { ChartsModule } from 'ng2-charts/ng2-charts';
 
 
 @NgModule({
-  imports: [BrowserModule, NgbModule],
+  imports: [BrowserModule, NgbModule, ChartsModule],
   declarations: [
     ContentComponent,
     AddModalsComponent,

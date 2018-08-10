@@ -70,4 +70,5 @@ export class AddModalsComponent implements OnInit {
       document.getElementById("exampleFormControlTextarea1")
     );
   }
+
 }

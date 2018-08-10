@@ -8,7 +8,6 @@
 
 }
 .card{
-    max-height: 30rem;
     margin: 3rem;
 }
 .btn-add-custom{
@@ -92,4 +91,7 @@
 }
 .bg-danger{
     background-color: #cc2424;
+}
+#chart{
+    display: block;
 }

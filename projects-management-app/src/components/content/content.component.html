@@ -23,18 +23,27 @@
                     </button>
                 </div>
                 </div>
+                <div id="chart" *ngIf="isAnyStageAvailable(item)">
+                    <canvas baseChart
+                            [data]="pieChartData"
+                            [labels]="pieChartLabels"
+                            [chartType]="pieChartType"
+                            ></canvas>
+                </div>
             </div>
         </div>
-        <div class="bd-example">
-            <button type="button" class="btn btn-success" (click)="openAddStage(item)">
-                <i class="fas fa-plus"></i> Add stage</button>
-            <button type="button" class="btn btn-custom" (click)="openEdit(item)">
-                <i class="fas fa-pen"></i> Edit</button>
-            <button type="button" class="btn btn-custom" (click)="openDetail(item)">
-                <i class="fas fa-info"></i> Details</button>
-            <button type="button" class="btn btn-danger" (click)="deleteProject(item)">
-                <i class="fas fa-trash-alt"></i> Delete</button>
+        <div class="card-footer bg-transparent border-warning">
+            <div class="bd-example">
+                <button type="button" class="btn btn-success" (click)="openAddStage(item)">
+                    <i class="fas fa-plus"></i> Add stage</button>
+                <button type="button" class="btn btn-custom" (click)="openEdit(item)">
+                    <i class="fas fa-pen"></i> Edit</button>
+                <button type="button" class="btn btn-custom" (click)="openDetail(item)">
+                    <i class="fas fa-info"></i> Details</button>
+                <button type="button" class="btn btn-danger" (click)="deleteProject(item)">
+                    <i class="fas fa-trash-alt"></i> Delete</button>
+            </div>
+            <div *ngIf="item.updateDate!==null && item.updateDate !== undefined">Last update: {{item.updateDate |date:'dd-MM-y'}}</div>
         </div>
-        <div *ngIf="item.updateDate!==null && item.updateDate !== undefined" class="card-footer bg-transparent border-warning">Last update: {{item.updateDate |date:'dd-MM-y'}}</div>
     </div>
 </div>

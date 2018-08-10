@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { NavbarModule } from '../components/navbar/navbar.module';
 import { ContentModule } from '../components/content/content.module';
 
+
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,6 +19,7 @@ import { ContentModule } from '../components/content/content.module';
     FormsModule,
     NavbarModule,
     ContentModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
