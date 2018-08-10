@@ -15,6 +15,6 @@ Example of SPA application, coded in AngularCLI with Bootstrap 4.
 **Why it is usefull?**
 1. You have CRUD on project list.
 2. You have CRUD on each project stage. You can create new, update or delete any stage from project.
-3. You have example of pie chart that show you spent time for eche stage and also how much time is left to the end of project.
+3. You have example of pie chart that show you spend time for each stage and also how much time is left to the end of project.
 4. The application is full responsive.
-4. Data is save in the array via service. You can add any backed you want!
+4. Data is save in the array via service. You can add any backend you want!
